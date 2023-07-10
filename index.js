@@ -1,13 +1,17 @@
 import { createServer } from "node:http";
 
-function Homepage() {
-  return "<h1>Hello<h1>";
+function firstFish() {
+  return "<h1>Shrimp<h1>";
 }
+function About() {}
 
 const server = createServer((request, response) => {
   console.log("Request incoming...", request.url);
-  if (request.url === "/") {
-    response.end(Homepage());
+  if (request.url === "/api/fish1") {
+    response.end(firstFish());
+  }
+  if (request.url === "/api/fish2") {
+    response.end("Anemonenfisch");
   }
 });
 
