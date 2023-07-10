@@ -1,13 +1,17 @@
 import { createServer } from "node:http";
+import Chance from "chance";
 
 function firstFish() {
   return "<h1>Shrimp<h1>";
 }
+
 let count = 0;
 function Greeting(count) {
-  const name = "Johannes";
-  const age = "29";
-  const profession = "web developer";
+  const chance = new Chance();
+
+  const name = chance.name();
+  const age = chance.age();
+  const profession = chance.profession();
   return `<h2>Hey, my name is ${name}, i am ${age} years old and i am a ${profession}.</h2>
   <p>This page was visited ${count} times.</p>`;
 }
